@@ -1,0 +1,25 @@
+@rendermode InteractiveServer
+
+<div class="card m-2 p-3" style="width: 18rem;">
+    <h3>@Titulo</h3>
+
+    <p>Pontos por ação: <strong>@Peso</strong></p>
+
+    <p>Total: @total</p>
+
+    <button class="btn btn-primary" @onclick="AdicionarPontos">
+        Registrar ação
+    </button>
+</div>
+
+@code {
+    [Parameter] public string Titulo { get; set; }
+    [Parameter] public int Peso { get; set; }
+
+    private int total = 0;
+
+    private void AdicionarPontos()
+    {
+        total += Peso;
+    }
+}
